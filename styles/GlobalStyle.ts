@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 body {
-font-family: "Space Grotesk";
+  font-family: var(--font-roboto), sans-serif;
 }
 
 h1, h2, h3, h4, p {
