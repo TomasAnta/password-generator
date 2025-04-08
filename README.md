@@ -22,10 +22,11 @@ A Next.js + TypeScript project for generating secure passwords. Includes reusabl
 1. **Install Dependencies**:
     ```bash
     npm install
-    npm run dev
-    npm run build
-    npm run start
     ```
+2. **Start The Project**:
+   ```bash
+   npm run dev
+   ```
 
 ## Key Features
 
