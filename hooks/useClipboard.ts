@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 
-export function useClipboard() {
+export const useClipboard = () => {
     const [copySuccess, setCopySuccess] = useState("");
 
     const copyToClipboard = useCallback(async (text: string) => {
@@ -14,4 +14,4 @@ export function useClipboard() {
     }, []);
 
     return { copySuccess, copyToClipboard };
-}
+};

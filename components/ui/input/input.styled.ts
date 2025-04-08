@@ -1,7 +1,13 @@
 "use client";
 
 import styled from "styled-components";
-import { fontSizes, colors, lineHeights, fontWeights } from "@styles/DesignVariables";
+import {
+    fontSizes,
+    colors,
+    lineHeights,
+    fontWeights,
+    responsiveBreakPoints,
+} from "@styles/DesignVariables";
 
 export const InputWrapper = styled.div`
     position: relative;
@@ -17,6 +23,17 @@ export const StyledInput = styled.input`
     line-height: ${lineHeights.inputText};
     outline: none;
     padding: 0 24px;
+
+    @media ${responsiveBreakPoints.maxTablet} {
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    @media ${responsiveBreakPoints.maxPhone} {
+        font-weight: 400;
+        font-size: 14px;
+        width: 100%;
+    }
 `;
 
 export const IconWrapper = styled.div`

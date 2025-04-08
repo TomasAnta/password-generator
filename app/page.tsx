@@ -1,5 +1,5 @@
-import PasswordGenerator from "../views/passwordGenerator/PasswordGenerator";
+import Passwords from "@views/Passwords";
 
 export default function Home() {
-    return <PasswordGenerator />;
+    return <Passwords />;
 }

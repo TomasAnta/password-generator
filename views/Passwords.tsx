@@ -6,13 +6,14 @@ import { layout } from "@styles/DesignVariables";
 import Generator from "@components/layout/generator/Generator";
 import Content from "@components/layout/content/Content";
 
-const PasswordGenerator = () => {
+const Passwords = () => {
     return (
         <React.Fragment>
             <Header />
             <Box
                 maxwidth={layout.maxWidth}
                 margin="24px auto"
+                padding="0 24px"
                 justifycontent="center"
                 alignitems="center"
                 textalign="center"
@@ -35,7 +36,7 @@ const PasswordGenerator = () => {
                 firstParagraph="A password generator is a tool that automatically generates strong,
         secure passwords. With its help, you don’t need to come up with your
         own passwords ever again."
-                secondParagraph=" A single mouse click will generate you a sequence of random symbols.
+                secondParagraph="A single mouse click will generate you a sequence of random symbols.
         Copy and use it as a password for your device, email, social media
         account, or anything else that requires restricted access."
                 thirdParagraph="Also, don’t use the same password for more than one account. Each time
@@ -55,4 +56,4 @@ const PasswordGenerator = () => {
     );
 };
 
-export default PasswordGenerator;
+export default Passwords;

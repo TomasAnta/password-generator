@@ -57,7 +57,7 @@ export const lineHeights = {
     inputText: "20px",
     checkBoxText: "22.4px",
     subheading: "22.4px",
-    heading: "22.4px",
+    heading: "40px",
     largeHeading: "52px",
 };
 

@@ -1,7 +1,11 @@
 "use client";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Typography from "@components/ui/typography/Typography";
-import { GeneratorStyled, PasswordChoices, PasswordInput } from "./generator.styled";
+import {
+    GeneratorStyled,
+    PasswordChoices,
+    PasswordInput,
+} from "./generator.styled";
 import { Button } from "@components/ui/button/Button";
 import Input from "@components/ui/input/Input";
 import ReloadArrow from "@assets/icons/ReloadArrow";
@@ -45,11 +49,9 @@ const Generator = () => {
 
     return (
         <GeneratorStyled>
-            <Spacer margin="56px 0 0 0">
-                <Typography variant="largeHeading" as="h1">
-                    Generate strong passwords
-                </Typography>
-            </Spacer>
+            <Typography variant="largeHeading" as="h1">
+                Generate strong passwords
+            </Typography>
 
             <Spacer margin="8px 0">
                 <Typography variant="subheading" as="p">
@@ -57,7 +59,8 @@ const Generator = () => {
                 </Typography>
             </Spacer>
             <Typography variant="subheading" as="p">
-                Create strong passwords that are completely random and impossible to guess.
+                Create strong passwords that are completely random and
+                impossible to guess.
             </Typography>
 
             <PasswordInput>
@@ -74,7 +77,9 @@ const Generator = () => {
                     }
                 />
                 <Button
-                    onClick={() => copyToClipboard(passwordRef.current?.value || "")}
+                    onClick={() =>
+                        copyToClipboard(passwordRef.current?.value || "")
+                    }
                     variant="primary"
                     aria-label="Copy generated password"
                 >
@@ -83,10 +88,26 @@ const Generator = () => {
             </PasswordInput>
 
             <PasswordChoices>
-                <Checkbox checked={isLowerCase} label="lower case" onChange={handleToggleLowerCase} />
-                <Checkbox checked={isUpperCase} label="upper case" onChange={handleToggleUpperCase} />
-                <Checkbox checked={isSpecialSymbols} label="special symbols" onChange={handleToggleSymbols} />
-                <Checkbox checked={isNumbers} label="numbers" onChange={handleToggleNumbers} />
+                <Checkbox
+                    checked={isLowerCase}
+                    label="lower case"
+                    onChange={handleToggleLowerCase}
+                />
+                <Checkbox
+                    checked={isUpperCase}
+                    label="upper case"
+                    onChange={handleToggleUpperCase}
+                />
+                <Checkbox
+                    checked={isSpecialSymbols}
+                    label="special symbols"
+                    onChange={handleToggleSymbols}
+                />
+                <Checkbox
+                    checked={isNumbers}
+                    label="numbers"
+                    onChange={handleToggleNumbers}
+                />
             </PasswordChoices>
         </GeneratorStyled>
     );

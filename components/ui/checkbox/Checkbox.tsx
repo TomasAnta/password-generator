@@ -1,5 +1,9 @@
 import React from "react";
-import { CheckBoxContainerStyled, CheckBoxLabelStyled, CheckBoxStyled } from "./checkbox.styled";
+import {
+    CheckBoxContainerStyled,
+    CheckBoxLabelStyled,
+    CheckBoxStyled,
+} from "./checkbox.styled";
 
 interface CheckboxProps {
     label: string;
@@ -12,7 +16,12 @@ const Checkbox = ({ label, onClick, checked, onChange }: CheckboxProps) => {
     return (
         <React.Fragment>
             <CheckBoxContainerStyled>
-                <CheckBoxStyled type="checkbox" onClick={onClick} onChange={onChange} checked={checked} />
+                <CheckBoxStyled
+                    type="checkbox"
+                    onClick={onClick}
+                    onChange={onChange}
+                    checked={checked}
+                />
                 <CheckBoxLabelStyled>{label}</CheckBoxLabelStyled>
             </CheckBoxContainerStyled>
         </React.Fragment>

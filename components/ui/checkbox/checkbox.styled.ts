@@ -1,7 +1,13 @@
 "use client";
 
 import styled from "styled-components";
-import { colors, fontSizes, fontWeights, lineHeights } from "@styles/DesignVariables";
+import {
+    colors,
+    fontSizes,
+    fontWeights,
+    lineHeights,
+    responsiveBreakPoints,
+} from "@styles/DesignVariables";
 
 export const CheckBoxContainerStyled = styled.div`
     display: flex;
@@ -9,6 +15,10 @@ export const CheckBoxContainerStyled = styled.div`
     flex-direction: row;
     gap: 9px;
     cursor: pointer;
+
+    @media ${responsiveBreakPoints.maxSmallDesktop} {
+        flex-direction: column;
+    }
 `;
 
 export const CheckBoxStyled = styled.input`

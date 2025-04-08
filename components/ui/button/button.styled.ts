@@ -6,6 +6,7 @@ import {
     fontWeights,
     colors,
     lineHeights,
+    responsiveBreakPoints,
 } from "@styles/DesignVariables";
 
 export type ButtonVariants = "primary" | "secondary";
@@ -38,6 +39,12 @@ export const primaryButton = css<StyledButton>`
 
     &:hover {
         background-color: ${colors.buttonHoverBackground};
+    }
+
+    @media ${responsiveBreakPoints.maxTablet} {
+        display: flex;
+        max-width: 100%;
+        width: 100%;
     }
 `;
 

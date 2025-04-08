@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+import { responsiveBreakPoints } from "@styles/DesignVariables";
 
 export const GeneratorStyled = styled.div`
     display: flex;
@@ -9,6 +10,14 @@ export const GeneratorStyled = styled.div`
     background: ${(props) => props.theme.colors.backgroundBlack};
     height: 328px;
     width: 100%;
+    padding: 0 24px;
+    justify-content: center;
+
+    @media ${responsiveBreakPoints.maxSmallDesktop} {
+        text-align: center;
+        height: auto;
+        padding: 48px 24px;
+    }
 `;
 
 export const PasswordInput = styled.div`
@@ -27,6 +36,11 @@ export const PasswordInput = styled.div`
     outline: none;
     transition: all 0.4s;
     margin-bottom: 16px;
+
+    @media ${responsiveBreakPoints.maxTablet} {
+        flex-direction: column;
+        height: auto;
+    }
 `;
 
 export const PasswordChoices = styled.div`
@@ -35,4 +49,8 @@ export const PasswordChoices = styled.div`
     justify-content: center;
     align-items: center;
     gap: 24px;
+
+    @media ${responsiveBreakPoints.maxTablet} {
+        gap: 8px;
+    }
 `;
