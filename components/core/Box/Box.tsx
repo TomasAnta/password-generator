@@ -9,30 +9,30 @@ import styled from "styled-components";
  */
 
 interface BoxProps {
-    display?: string;
-    flexdirection?: string;
-    justifycontent?: string;
-    alignitems?: string;
-    padding?: string;
-    margin?: string;
-    width?: string;
-    maxwidth?: string;
-    textalign?: string;
-    gap?: string;
+    $display?: string;
+    $flexdirection?: string;
+    $justifycontent?: string;
+    $alignitems?: string;
+    $padding?: string;
+    $margin?: string;
+    $width?: string;
+    $maxwidth?: string;
+    $textalign?: string;
+    $gap?: string;
     as?: keyof JSX.IntrinsicElements;
 }
 
 const Box = styled.div<BoxProps>`
-    display: ${({ display }) => display || "block"};
-    flex-direction: ${({ flexdirection }) => flexdirection};
-    justify-content: ${({ justifycontent }) => justifycontent};
-    align-items: ${({ alignitems }) => alignitems};
-    padding: ${({ padding }) => padding};
-    margin: ${({ margin }) => margin};
-    width: ${({ width }) => width};
-    max-width: ${({ maxwidth }) => maxwidth};
-    text-align: ${({ textalign }) => textalign};
-    gap: ${({ gap }) => gap};
+    display: ${({ $display }) => $display || "block"};
+    flex-direction: ${({ $flexdirection }) => $flexdirection};
+    justify-content: ${({ $justifycontent }) => $justifycontent};
+    align-items: ${({ $alignitems }) => $alignitems};
+    padding: ${({ $padding }) => $padding};
+    margin: ${({ $margin }) => $margin};
+    width: ${({ $width }) => $width};
+    max-width: ${({ $maxwidth }) => $maxwidth};
+    text-align: ${({ $textalign }) => $textalign};
+    gap: ${({ $gap }) => $gap};
 `;
 
 export default Box;

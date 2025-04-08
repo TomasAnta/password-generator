@@ -12,7 +12,7 @@ import {
 export type ButtonVariants = "primary" | "secondary";
 
 interface StyledButton {
-    variant: ButtonVariants;
+    $variant: ButtonVariants;
 }
 
 export const defaultButton = css<StyledButton>`
@@ -60,7 +60,7 @@ export const secondaryButton = css<StyledButton>`
 export const StyledButton = styled.button<StyledButton>`
     ${defaultButton};
     ${(props) => {
-        switch (props.variant) {
+        switch (props.$variant) {
             case "primary":
                 return primaryButton;
             case "secondary":

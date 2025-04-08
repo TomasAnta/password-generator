@@ -11,12 +11,12 @@ const Passwords = () => {
         <React.Fragment>
             <Header />
             <Box
-                maxwidth={layout.maxWidth}
-                margin="24px auto"
-                padding="0 24px"
-                justifycontent="center"
-                alignitems="center"
-                textalign="center"
+                $maxwidth={layout.maxWidth}
+                $margin="24px auto"
+                $padding="0 24px"
+                $justifycontent="center"
+                $alignitems="center"
+                $textalign="center"
             >
                 <Typography variant="noticeText" as="p">
                     Our readers help us create quality content. If you purchase
@@ -24,14 +24,16 @@ const Passwords = () => {
                     <span>Learn more</span>
                 </Typography>
             </Box>
-            <Box maxwidth={layout.maxWidth} margin="0 auto">
+            <Box $maxwidth={layout.maxWidth} $margin="0 auto">
                 <Generator />
             </Box>
 
             <Content
                 $containerWidth={50}
                 imageUrl="/images/secure-computer.png"
-                imageAlt="Password Generator"
+                imageAlt="Secure Password"
+                imageHeight={225}
+                imageWidth={225}
                 headline="What is a password generator?"
                 firstParagraph="A password generator is a tool that automatically generates strong,
         secure passwords. With its help, you don’t need to come up with your
@@ -47,7 +49,9 @@ const Passwords = () => {
                 $containerWidth={70}
                 $flexReverse={true}
                 imageUrl="/images/password-strength.png"
-                imageAlt="Password Generator"
+                imageAlt="Password Strength Meter"
+                imageHeight={225}
+                imageWidth={225}
                 headline="How does our password generator tool work?"
                 firstParagraph="To create a truly unique character combination, this online password generator tool goes through random sequences of 26 uppercase letters, 26 lowercase letters, 10 numeric digits, and 32 special symbols. The result is a unique 12-character sequence. This number of characters makes your future password downright unbreakable, taking 1.4 billion years for a brute-force attack to crack it."
                 secondParagraph="This free password generator is compatible with Windows, Linux, and Mac operating systems, as well as with Android and iOS devices."

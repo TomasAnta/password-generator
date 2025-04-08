@@ -11,6 +11,8 @@ interface ContentProps {
     headline: string;
     imageUrl: string;
     imageAlt: string;
+    imageHeight?: number;
+    imageWidth?: number;
     firstParagraph?: string;
     secondParagraph?: string;
     thirdParagraph?: string;
@@ -23,6 +25,8 @@ const Content = ({
     imageAlt = "Content Image",
     headline,
     firstParagraph,
+    imageHeight = 225,
+    imageWidth = 225,
     secondParagraph,
     thirdParagraph,
     $flexReverse = false,
@@ -31,28 +35,34 @@ const Content = ({
     return (
         <ContentWrapper $flexReverse={$flexReverse}>
             <ImageContainer $containerWidth={$containerWidth}>
-                <Image src={imageUrl} alt={imageAlt} width={225} height={225} />
+                <Image
+                    src={imageUrl}
+                    alt={imageAlt}
+                    width={225}
+                    height={225}
+                    priority
+                />
             </ImageContainer>
 
             <TextContainer $containerWidth={$containerWidth}>
                 <Typography as="h4" variant="heading">
                     {headline}
                 </Typography>
-                <Spacer margin="16px 0">
+                <Spacer $margin="16px 0">
                     {firstParagraph && (
                         <Typography as="p" variant="paragraph">
                             {firstParagraph}
                         </Typography>
                     )}
                 </Spacer>
-                <Spacer margin="16px 0">
+                <Spacer $margin="16px 0">
                     {secondParagraph && (
                         <Typography as="p" variant="paragraph">
                             {secondParagraph}
                         </Typography>
                     )}
                 </Spacer>
-                <Spacer margin="16px 0">
+                <Spacer $margin="16px 0">
                     {thirdParagraph && (
                         <Typography as="p" variant="paragraph">
                             {thirdParagraph}

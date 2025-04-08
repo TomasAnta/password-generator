@@ -53,7 +53,7 @@ const Generator = () => {
                 Generate strong passwords
             </Typography>
 
-            <Spacer margin="8px 0">
+            <Spacer $margin="8px 0">
                 <Typography variant="subheading" as="p">
                     Upgrade the security of your online accounts.
                 </Typography>
@@ -80,7 +80,7 @@ const Generator = () => {
                     onClick={() =>
                         copyToClipboard(passwordRef.current?.value || "")
                     }
-                    variant="primary"
+                    $variant="primary"
                     aria-label="Copy generated password"
                 >
                     {copySuccess ? "Copied" : "Copy Password"}

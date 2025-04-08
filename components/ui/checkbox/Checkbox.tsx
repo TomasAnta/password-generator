@@ -5,20 +5,26 @@ import {
     CheckBoxStyled,
 } from "./checkbox.styled";
 
+/**
+ * Checkbox component for user input.
+ * @param {string} label - The label for the checkbox.
+ * @param {boolean} checked - The checked state of the checkbox.
+ * @param {function} onClick - Callback function for checkbox click event.
+ * @param {function} onChange - Callback function for checkbox change event.
+ */
+
 interface CheckboxProps {
     label: string;
     checked?: boolean;
-    onClick?: () => void;
     onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Checkbox = ({ label, onClick, checked, onChange }: CheckboxProps) => {
+const Checkbox = ({ label, checked, onChange }: CheckboxProps) => {
     return (
         <React.Fragment>
             <CheckBoxContainerStyled>
                 <CheckBoxStyled
                     type="checkbox"
-                    onClick={onClick}
                     onChange={onChange}
                     checked={checked}
                 />
