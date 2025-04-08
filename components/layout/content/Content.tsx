@@ -38,8 +38,8 @@ const Content = ({
                 <Image
                     src={imageUrl}
                     alt={imageAlt}
-                    width={225}
-                    height={225}
+                    width={imageWidth}
+                    height={imageHeight}
                     priority
                 />
             </ImageContainer>
