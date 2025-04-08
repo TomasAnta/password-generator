@@ -1,10 +1,25 @@
+export const layout = {
+    maxWidth: "1160px",
+    padding: "0 24px",
+};
+
+export type AppLayoutType = typeof layout;
+
 export const colors = {
-    primaryColor: "#21092F",
-    secondaryColor: "#8F8694",
-    white: "#fff",
-    placeholderColor: "rgba(33, 9, 47, 0.25)",
-    paragraphColor: "#21092F",
-    mainGradient: "linear-gradient(164deg, #6348FE 4.74%, #610595 88.83%)",
+    backgroundBlack: "#111",
+    noticeTextColor: "#9E9FA4",
+    headingColor: "#000",
+    largeHeadingColor: "#fff",
+    subheadingColor: "#fff",
+    inputTextColor: "#333",
+    checkboxTextColor: "#fff",
+    paragraphColor: "#7A7A7A",
+    buttonBackground: "#09A858",
+    buttonHoverBackground: "#098858",
+    buttonTextColor: "#fff",
+    inputBackground: "#fff",
+    notificationBackground: "#9E9FA4",
+    notificationTextColor: "#fff",
 };
 
 export type AppColorsType = typeof colors;
@@ -21,17 +36,29 @@ export const responsiveBreakPoints = {
 export type AppBreakpointsType = typeof responsiveBreakPoints;
 
 export const fontSizes = {
-    b12: "12px",
-    b14: "14px",
-    b16: "16px",
-    h18: "18px",
-    h28: "28px",
+    notificationText: "12px",
+    noticeText: "12px",
+    paragraph: "16px",
+    buttonText: "16px",
+    inputText: "20px",
+    checkBoxText: "12px",
+    subheading: "16px",
+    heading: "31px",
+    largeHeading: "40px",
 };
 
 export type AppFSType = typeof fontSizes;
 
 export const lineHeights = {
-    lineHeight: "auto",
+    notificationText: "12px",
+    noticeText: "12px",
+    paragraph: "26px",
+    buttonText: "16px",
+    inputText: "20px",
+    checkBoxText: "22.4px",
+    subheading: "22.4px",
+    heading: "22.4px",
+    largeHeading: "52px",
 };
 
 export type AppLineHeightsType = typeof lineHeights;
