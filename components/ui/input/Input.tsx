@@ -11,7 +11,15 @@ type Props = {
     onIconClick?: () => void;
 };
 
-const Input = ({ value, onChange, placeholder, readOnly = false, icon, onIconClick, ref }: Props) => {
+const Input = ({
+    value,
+    onChange,
+    placeholder,
+    readOnly = false,
+    icon,
+    onIconClick,
+    ref,
+}: Props) => {
     return (
         <InputWrapper>
             <StyledInput

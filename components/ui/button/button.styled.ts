@@ -1,7 +1,12 @@
 "use client";
 
 import styled, { css } from "styled-components";
-import { fontSizes, fontWeights, colors, lineHeights } from "@styles/DesignVariables";
+import {
+    fontSizes,
+    fontWeights,
+    colors,
+    lineHeights,
+} from "@styles/DesignVariables";
 
 export type ButtonVariants = "primary" | "secondary";
 
