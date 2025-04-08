@@ -1,64 +1,47 @@
 "use client";
-import { useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Typography from "@components/ui/typography/Typography";
 import { GeneratorStyled, PasswordChoices, PasswordInput } from "./generator.styled";
 import { Button } from "@components/ui/button/Button";
 import Input from "@components/ui/input/Input";
 import ReloadArrow from "@assets/icons/ReloadArrow";
 import Spacer from "@components/core/Spacer/Spacer";
-import Notification from "@components/ui/notification/Notification";
 import { useClipboard } from "@hooks/useClipboard";
 import Checkbox from "@components/ui/checkbox/Checkbox";
+import { generatePassword } from "@utils/passwordUtils";
+
+const DEFAULT_PASSWORD_LENGTH = 20;
 
 const Generator = () => {
-    const textAreaRef = useRef<HTMLInputElement>(null);
+    const passwordRef = useRef<HTMLInputElement>(null);
     const { copySuccess, copyToClipboard } = useClipboard();
     const [isLowerCase, setIsLowerCase] = useState(true);
     const [isUpperCase, setIsUpperCase] = useState(false);
     const [isNumbers, setIsNumbers] = useState(false);
     const [isSpecialSymbols, setIsSpecialSymbols] = useState(false);
+    const [password, setPassword] = useState("");
 
-    const passwordLength = 20;
-    const PASSWORD = generatePassword(passwordLength, isUpperCase, isLowerCase, isNumbers, isSpecialSymbols);
+    const handleGeneratePassword = useCallback(() => {
+        const newPassword = generatePassword(
+            DEFAULT_PASSWORD_LENGTH,
+            isUpperCase,
+            isLowerCase,
+            isNumbers,
+            isSpecialSymbols
+        );
+        setPassword(newPassword);
+    }, [isUpperCase, isLowerCase, isNumbers, isSpecialSymbols]);
 
-    function generatePassword(
-        length: number,
-        isUpperCase: boolean,
-        isLowerCase: boolean,
-        isNumbers: boolean,
-        isSpecialSymbols: boolean
-    ) {
-        const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        const lowercase = "abcdefghijklmnopqrstuvwxyz";
-        const numbers = "0123456789";
-        const specialSymbols = "!@#$%^&*()_+[]{}|;:,.<>?";
-        let password = "";
-        let combined = "";
+    // Generate a new password whenever any Checkbox option changes, or on first render.
+    useEffect(() => {
+        handleGeneratePassword();
+    }, [handleGeneratePassword]);
 
-        if (isUpperCase) {
-            combined += uppercase;
-        }
-
-        if (isLowerCase) {
-            combined += lowercase;
-        }
-
-        if (isNumbers) {
-            combined += numbers;
-        }
-
-        if (isSpecialSymbols) {
-            combined += specialSymbols;
-        }
-
-        for (let i = 0; i < length; i++) {
-            const randomCharacterIndex = Math.floor(Math.random() * combined.length);
-            const randomCharacter = combined[randomCharacterIndex];
-            password += randomCharacter;
-        }
-
-        return password;
-    }
+    // Checkbox handlers
+    const handleToggleLowerCase = () => setIsLowerCase((prev) => !prev);
+    const handleToggleUpperCase = () => setIsUpperCase((prev) => !prev);
+    const handleToggleNumbers = () => setIsNumbers((prev) => !prev);
+    const handleToggleSymbols = () => setIsSpecialSymbols((prev) => !prev);
 
     return (
         <GeneratorStyled>
@@ -67,6 +50,7 @@ const Generator = () => {
                     Generate strong passwords
                 </Typography>
             </Spacer>
+
             <Spacer margin="8px 0">
                 <Typography variant="subheading" as="p">
                     Upgrade the security of your online accounts.
@@ -75,21 +59,34 @@ const Generator = () => {
             <Typography variant="subheading" as="p">
                 Create strong passwords that are completely random and impossible to guess.
             </Typography>
+
             <PasswordInput>
-                <Input value={PASSWORD} readOnly icon={<ReloadArrow />} ref={textAreaRef} />
-                <Button onClick={() => copyToClipboard(textAreaRef.current?.value || "")} variant="primary">
-                    Copy Password {copySuccess && <Notification message={copySuccess} />}
+                <Input
+                    ref={passwordRef}
+                    value={password}
+                    readOnly
+                    icon={
+                        <ReloadArrow
+                            onClick={handleGeneratePassword}
+                            style={{ cursor: "pointer" }}
+                            aria-label="Generate a new password"
+                        />
+                    }
+                />
+                <Button
+                    onClick={() => copyToClipboard(passwordRef.current?.value || "")}
+                    variant="primary"
+                    aria-label="Copy generated password"
+                >
+                    {copySuccess ? "Copied" : "Copy Password"}
                 </Button>
             </PasswordInput>
+
             <PasswordChoices>
-                <Checkbox checked={isLowerCase} label="lower case" onChange={() => setIsLowerCase(!isLowerCase)} />
-                <Checkbox checked={isUpperCase} label="upper case" onChange={() => setIsUpperCase(!isUpperCase)} />
-                <Checkbox
-                    checked={isSpecialSymbols}
-                    label="special symbols"
-                    onChange={() => setIsSpecialSymbols(!isSpecialSymbols)}
-                />
-                <Checkbox checked={isNumbers} label="numbers" onChange={() => setIsNumbers(!isNumbers)} />
+                <Checkbox checked={isLowerCase} label="lower case" onChange={handleToggleLowerCase} />
+                <Checkbox checked={isUpperCase} label="upper case" onChange={handleToggleUpperCase} />
+                <Checkbox checked={isSpecialSymbols} label="special symbols" onChange={handleToggleSymbols} />
+                <Checkbox checked={isNumbers} label="numbers" onChange={handleToggleNumbers} />
             </PasswordChoices>
         </GeneratorStyled>
     );

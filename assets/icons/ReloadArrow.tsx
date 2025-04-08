@@ -1,9 +1,10 @@
 "use client";
 interface ReloadArrowProps {
     onClick?: () => void;
+    style: React.CSSProperties;
 }
 
-const ReloadArrow = ({ onClick }: ReloadArrowProps) => {
+const ReloadArrow = ({ onClick, style }: ReloadArrowProps) => {
     return (
         <svg
             width="26"
@@ -12,7 +13,7 @@ const ReloadArrow = ({ onClick }: ReloadArrowProps) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             onClick={onClick}
-            style={{ cursor: "pointer" }}
+            style={style}
         >
             <g clipPath="url(#clip0_1745_530)">
                 <path
